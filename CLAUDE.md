@@ -80,9 +80,9 @@ Token = fine-grained PAT scoped only to `ttrpg-terra`, **Contents: read and writ
 
 ### Pre-publish checklist
 
-- [ ] **`cname` plugin is enabled** — it writes `public/CNAME` containing `strakul.com` (hostname from `baseUrl`). For a project repo under the `dr-rodriguez.github.io` custom domain this is unwanted; disable it (`enabled: false`) before first deploy.
-- [ ] `analytics: provider: plausible` is set — confirm a Plausible site exists for strakul.com or remove it.
-- [ ] Remove/neutralize upstream workflows (above); add `deploy.yaml`.
+- [x] **`cname` plugin disabled** — it writes `public/CNAME` containing `strakul.com` (hostname from `baseUrl`). For a project repo under the `dr-rodriguez.github.io` custom domain this is unwanted; disable it (`enabled: false`) before first deploy.
+- [x] Analytics disabled (`analytics: null`).
+- [ ] Remove/neutralize upstream workflows (above). (`deploy.yaml` added.)
 - [ ] Repo Settings → Pages → Source: **GitHub Actions**.
 - [ ] Verify `strakul.com/ttrpg-terra` loads; check Cloudflare isn't overriding routing.
 - [ ] Verify page dates come from the `dnd-llm-wiki` git history, not this repo.
