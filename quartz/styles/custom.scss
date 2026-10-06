@@ -6,3 +6,212 @@
 body[data-slug$="/index"]:not([data-slug^="tags/"]) .page-listing {
   display: none;
 }
+
+// ---------------------------------------------------------------------------
+// Illuminated-manuscript style: parchment, blackletter headings, mono labels.
+// Base colors and fonts live in quartz.config.yaml (configuration.theme).
+// ---------------------------------------------------------------------------
+
+:root {
+  --gold: #e6a857;
+  --lapis: #23409b;
+  --rule: color-mix(in srgb, var(--dark) 22%, transparent);
+}
+
+// Body text: tight, editorial sans
+body {
+  letter-spacing: -0.01em;
+}
+
+article p,
+article li {
+  line-height: 1.65;
+}
+
+// Blackletter headings
+h1,
+h2,
+h3,
+h4,
+.page-title,
+.article-title {
+  font-family: var(--headerFont);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--dark);
+}
+
+.article-title {
+  font-size: 3.2rem;
+  line-height: 1.05;
+  margin: 0.5rem 0 1rem;
+}
+
+.page-title {
+  font-size: 1.9rem;
+  text-transform: none;
+  letter-spacing: 0;
+
+  a {
+    color: var(--dark);
+  }
+}
+
+article h2 {
+  font-size: 2rem;
+}
+
+article h3 {
+  font-size: 1.55rem;
+}
+
+article h4,
+article h5,
+article h6 {
+  font-family: var(--bodyFont);
+  font-weight: 600;
+}
+
+// Small-caps "issue label" mono text: breadcrumbs, meta, sidebar section titles
+.breadcrumb-container,
+.content-meta,
+.sidebar h2:not(.page-title),
+.sidebar h3,
+.page-listing > p,
+.search-button,
+.tags .tag-link,
+.section-li .meta {
+  font-family: var(--codeFont);
+  font-size: 0.7rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.breadcrumb-container {
+  color: var(--secondary);
+
+  a {
+    color: var(--secondary);
+  }
+}
+
+.sidebar h2:not(.page-title),
+.sidebar h3 {
+  color: var(--gray);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+}
+
+// Links: ink-colored text with a red underline, blue on hover
+article a.internal,
+article a.external {
+  background-color: transparent;
+  color: var(--dark);
+  text-decoration: underline;
+  text-decoration-color: var(--secondary);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  padding: 0;
+
+  &:hover {
+    color: var(--tertiary);
+    text-decoration-color: var(--tertiary);
+  }
+}
+
+// Thin ink rules
+hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+}
+
+// Pull-quote style blockquotes
+article blockquote:not(.callout) {
+  border-left: 2px solid var(--secondary);
+  font-style: italic;
+  color: var(--darkgray);
+}
+
+// Pilcrow marker on list bullets
+article ul > li::marker {
+  color: var(--secondary);
+}
+
+article ol > li::marker {
+  color: var(--secondary);
+  font-family: var(--headerFont);
+  font-weight: 600;
+}
+
+// Illuminated drop cap on the first paragraph of a page
+article > p:first-of-type::first-letter,
+article .markdown-rendered > p:first-of-type::first-letter {
+  float: left;
+  font-family: var(--headerFont);
+  font-weight: 700;
+  font-size: 3.4em;
+  line-height: 0.9;
+  color: var(--gold);
+  background: var(--lapis);
+  border: 3px double var(--gold);
+  outline: 1px solid var(--dark);
+  padding: 0.12em 0.16em 0.04em;
+  margin: 0.12em 0.45rem 0 0;
+}
+
+// Opt out per page with `cssclasses: [no-dropcap]` in frontmatter
+article.no-dropcap > p:first-of-type::first-letter,
+.no-dropcap .markdown-rendered > p:first-of-type::first-letter {
+  all: unset;
+}
+
+// Tables: ledger look
+article table {
+  border-collapse: collapse;
+
+  th {
+    font-family: var(--codeFont);
+    font-size: 0.7rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gray);
+    border-bottom: 1px solid var(--dark);
+  }
+
+  td {
+    border-bottom: 1px solid var(--rule);
+  }
+}
+
+// Search bar and inputs on parchment
+.search > .search-button {
+  background-color: var(--highlight);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+}
+
+// Callouts: square corners, ink-on-parchment; note/info in lapis
+.callout {
+  border-radius: 2px;
+  border-left-width: 3px;
+
+  .callout-title {
+    font-family: var(--codeFont);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  &[data-callout="note"],
+  &[data-callout="info"] {
+    --color: var(--tertiary);
+    --border: color-mix(in srgb, var(--tertiary) 40%, transparent);
+    --bg: color-mix(in srgb, var(--tertiary) 7%, transparent);
+  }
+}
+
+::selection {
+  background: var(--textHighlight);
+}

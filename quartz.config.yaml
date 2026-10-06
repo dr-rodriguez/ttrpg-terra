@@ -12,34 +12,42 @@ configuration:
     - private
     - templates
     - .obsidian
+    - "**/log.md"
   theme:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: Schibsted Grotesk
-      body: Source Sans Pro
-      code: IBM Plex Mono
+      header:
+        name: Grenze Gotisch
+        weights: [500, 600, 700]
+      body:
+        name: Geist
+        weights: [400, 500, 600]
+        includeItalic: false
+      code:
+        name: Geist Mono
+        weights: [400, 500]
     colors:
       lightMode:
-        light: "#faf8f8"
-        lightgray: "#e5e5e5"
-        gray: "#b8b8b8"
-        darkgray: "#4e4e4e"
-        dark: "#2b2b2b"
-        secondary: "#284b63"
-        tertiary: "#84a59d"
-        highlight: rgba(143, 159, 169, 0.15)
-        textHighlight: "#fff23688"
+        light: "#f2ece1"
+        lightgray: "#e7dfd0"
+        gray: "#8c8374"
+        darkgray: "#2b251d"
+        dark: "#17130e"
+        secondary: "#c4351e"
+        tertiary: "#23409b"
+        highlight: rgba(196, 53, 30, 0.07)
+        textHighlight: "#e6a85766"
       darkMode:
-        light: "#161618"
-        lightgray: "#393639"
-        gray: "#646464"
-        darkgray: "#d4d4d4"
-        dark: "#ebebec"
-        secondary: "#7b97aa"
-        tertiary: "#84a59d"
-        highlight: rgba(143, 159, 169, 0.15)
-        textHighlight: "#b3aa0288"
+        light: "#17130e"
+        lightgray: "#2f281f"
+        gray: "#7d7466"
+        darkgray: "#e2d9c8"
+        dark: "#f2ece1"
+        secondary: "#e2674f"
+        tertiary: "#8aa2e8"
+        highlight: rgba(230, 168, 87, 0.08)
+        textHighlight: "#e6a85744"
 plugins:
   - source: "@quartz-community/created-modified-date"
     enabled: true
@@ -110,8 +118,28 @@ plugins:
     order: 92
   - source: "@quartz-community/quartz-fonts"
     enabled: true
+    options:
+      useThemeFonts: false
+      fontOrigin: googleFonts
+      header:
+        name: Grenze Gotisch
+        weights: [500, 600, 700]
+      title:
+        name: Grenze Gotisch
+        weights: [600, 700]
+      body:
+        name: Geist
+        weights: [400, 500, 600]
+        includeItalic: false
+      interface:
+        name: Geist
+        weights: [400, 500, 600]
+        includeItalic: false
+      code:
+        name: Geist Mono
+        weights: [400, 500]
   - source: "@quartz-themes/core"
-    enabled: true
+    enabled: false
     options:
       theme: its-theme
       variation: ttrpg-dnd
@@ -234,7 +262,7 @@ plugins:
     options:
       links:
         GitHub: https://github.com/dr-rodriguez
-        Strakul: https://strakul.com/blog
+        Strakul's Thoughts: https://strakul.com/blog
     layout:
       position: footer
       priority: 50
