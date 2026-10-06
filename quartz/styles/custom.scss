@@ -1,3 +1,8 @@
 @use "./variables.scss" as *;
 
 // put your custom CSS here!
+
+// Hide the "N items under this folder." listing on folder pages (tag pages keep theirs)
+body[data-slug$="/index"]:not([data-slug^="tags/"]) .page-listing {
+  display: none;
+}
