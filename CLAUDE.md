@@ -83,11 +83,11 @@ Token = fine-grained PAT scoped only to `ttrpg-terra`, **Contents: read and writ
 - [x] **`cname` plugin disabled** — it writes `public/CNAME` containing `strakul.com` (hostname from `baseUrl`). For a project repo under the `dr-rodriguez.github.io` custom domain this is unwanted; disable it (`enabled: false`) before first deploy.
 - [x] Analytics disabled (`analytics: null`).
 - [ ] Remove/neutralize upstream workflows (above). (`deploy.yaml` added.)
-- [ ] Repo Settings → Pages → Source: **GitHub Actions**.
-- [ ] Verify `strakul.com/ttrpg-terra` loads; check Cloudflare isn't overriding routing.
+- [x] Repo Settings → Pages → Source: **GitHub Actions**.
+- [x] Verify `strakul.com/ttrpg-terra` loads; check Cloudflare isn't overriding routing.
 - [ ] Verify page dates come from the `dnd-llm-wiki` git history, not this repo.
 - [ ] Wiki audit: no `[[links]]` into `raw/` (render as unresolved), all embedded images under `wiki/` (e.g. `wiki/Images/`), `draft: true` on anything private/spoiler-y, no players' real names.
-- [ ] Root homepage: `wiki/index.md` must exist (lowercase) or `/` 404s.
+- [x] Root homepage: `wiki/index.md` must exist (lowercase) or `/` 404s.
 - [ ] Set up dispatch workflow + PAT in `dnd-llm-wiki`.
 - [ ] Link from main site (`dr-rodriguez/dr-rodriguez.github.io`, HTML5 UP Dimension template).
 

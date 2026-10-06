@@ -103,6 +103,13 @@ article h6 {
   padding-bottom: 0.4rem;
 }
 
+// Explorer folder titles: blackletter reads small, so bump it above the page links
+.explorer .folder-container div > a,
+.explorer .folder-container div > button span {
+  font-size: 1.3rem;
+  line-height: 1.7rem;
+}
+
 // Links: ink-colored text with a red underline, blue on hover
 article a.internal,
 article a.external {
