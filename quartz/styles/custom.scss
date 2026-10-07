@@ -222,3 +222,19 @@ article table {
 ::selection {
   background: var(--textHighlight);
 }
+
+// Task checkboxes: default border (lightgray on light) is near-invisible on parchment
+input[type="checkbox"] {
+  border: 1.5px solid var(--gray);
+  background-color: color-mix(in srgb, var(--dark) 4%, var(--light));
+
+  &:hover:not(:checked) {
+    border-color: var(--secondary);
+  }
+
+  // Re-assert the filled checked state (the rule above outranks upstream's)
+  &:checked {
+    border-color: var(--secondary);
+    background-color: var(--secondary);
+  }
+}

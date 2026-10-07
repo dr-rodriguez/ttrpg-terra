@@ -78,19 +78,6 @@ Token = fine-grained PAT scoped only to `ttrpg-terra`, **Contents: read and writ
 
 `ci.yaml`, `deploy-v5.yaml`, `build-preview.yaml`, `deploy-preview.yaml`, `docker-build-push.yaml`, `dependabot-automerge.yaml` are upstream Quartz's own. All are guarded by `if: github.repository == 'jackyzha0/quartz'` so their jobs no-op here (still show as skipped runs). Consider deleting them, plus `.github/dependabot.yml` (not guarded — will open dependency PRs on this repo) and `FUNDING.yml`. Our deploy workflow should be a new file.
 
-### Pre-publish checklist
-
-- [x] **`cname` plugin disabled** — it writes `public/CNAME` containing `strakul.com` (hostname from `baseUrl`). For a project repo under the `dr-rodriguez.github.io` custom domain this is unwanted; disable it (`enabled: false`) before first deploy.
-- [x] Analytics disabled (`analytics: null`).
-- [ ] Remove/neutralize upstream workflows (above). (`deploy.yaml` added.)
-- [x] Repo Settings → Pages → Source: **GitHub Actions**.
-- [x] Verify `strakul.com/ttrpg-terra` loads; check Cloudflare isn't overriding routing.
-- [ ] Verify page dates come from the `dnd-llm-wiki` git history, not this repo.
-- [ ] Wiki audit: no `[[links]]` into `raw/` (render as unresolved), all embedded images under `wiki/` (e.g. `wiki/Images/`), `draft: true` on anything private/spoiler-y, no players' real names.
-- [x] Root homepage: `wiki/index.md` must exist (lowercase) or `/` 404s.
-- [ ] Set up dispatch workflow + PAT in `dnd-llm-wiki`.
-- [ ] Link from main site (`dr-rodriguez/dr-rodriguez.github.io`, HTML5 UP Dimension template).
-
 ## Wiki content conventions (for agent maintaining `dnd-llm-wiki`)
 
 - Obsidian `[[wikilinks]]`, `![[embeds]]`, callouts render natively. Links resolve by `shortest` path.
